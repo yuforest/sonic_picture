@@ -1,0 +1,28 @@
+
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag @post.picture %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @post.text %>
+</p>
+
+
+<% unless @post.user == current_user %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入り解除する', favorite_path(post_id: @post.id), method: :delete, class: 'btn btn-danger' %> |
+  <% else %>
+    <%= link_to 'お気に入りする', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-success' %> |
+  <% end %>
+<% end %> 
+<% if logged_in? %>
+          <% if @post.user_id == current_user.id %>
+<%= link_to '編集', edit_post_path(@post), class: 'btn btn-info' %> |
+<%= link_to '削除', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %> |
+
+<% end %>
+<% end %>
+<%= link_to '投稿一覧へ', posts_path,class: 'btn btn-primary' %>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SonicPicture</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+
+    <nav class="navbar navbar-default navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse1" aria-extended="false">
+            <span class="sr-only">Sonic Picture</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Sonic Picture</a>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="navbar-collapse1">
+          <ul class="nav navbar-nav">
+            <li><a href="/">HOME</span></a></li>
+            <li><a href="/posts">PICTURE</a></li>
+            <li><a href="/posts/new">新規投稿</a></li>
+            <% if logged_in? %>
+              <li><a href="/favorite_posts/index">お気に入り</a></li>
+            <% end %>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li><%= link_to "Profile", user_path(current_user.id) %></li>
+            <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+            
+          <% else %>
+            <li><%= link_to "Sign Up", new_user_path %></li>
+            <li><%= link_to "Log in", new_session_path %></li>
+          <% end %>
+          
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+  </header>
+    
+    <div class="contents-wrapper">
+      
+        <% flash.each do |key, value| %>
+        <div class="flash_notice alert alert-info alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="閉じる"><span aria-hidden="true">×</span></button>
+          <%= content_tag(:div, value, class: "#{key}") %>
+          </div>
+        <% end %>
+      
+      
+      <%= yield %>
+      
+    </div>
+    <footer></footer>
+  </body>
+</html>

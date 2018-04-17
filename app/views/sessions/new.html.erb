@@ -1,0 +1,15 @@
+<h1>Log in</h1>
+
+<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  
+  <%= f.submit "Log in" %>
+  
+<% end %>
+
+<div class="new-user-link"><%= link_to "新規会員登録はこちら", new_user_path %></div>

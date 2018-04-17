@@ -1,0 +1,97 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap/dist/css/bootstrap.min
+ *= require_tree .
+ *= require_self
+ */
+
+
+footer{
+  height: 50px;
+  background-color: #EFFBEF;
+  width: 100%;
+  position: absolute;
+  bottom:0;
+
+}
+html{
+  font-size: 62.5%;
+  position: relative;
+  min-height: 100%;
+}
+
+body{
+  text-align: center;
+  margin: 0;
+  background-color: #FAFAFA;
+  width: 100%
+}
+
+.about{
+  margin-top: 50px;
+    
+  }
+.navbar-default {
+background-color: #088A08;
+border-color: #444444;
+}
+.navbar-default .navbar-nav > li > a {
+color: #ffffff;
+}
+
+.navbar-default .navbar-brand {
+color: #ffffff;
+}
+
+
+.new-user-link{
+  margin-top: 20px;
+}
+
+.submit-formbutton{
+  margin-top: 20px;
+}
+.posts img{
+   max-width: 480px;
+   height: auto;
+   max-height: 350px;
+   display: block;
+   margin: 0 auto;
+}
+.contents-wrapper{
+  margin-bottom: 100px;
+  
+}
+.post-panel{
+    height: 450px;
+    margin: 20px 0;
+    /*border: solid 1px #333333;*/
+    border-radius: 10px;
+}
+.flash_notice{
+  width: 90%;
+  margin: auto;
+  
+}
+
+label{
+  display: block;
+}
+
+input#post_picture{
+  margin: 0 auto;
+}
+
+.afterform-button{
+  margin-top: 30px;
+}

@@ -1,0 +1,32 @@
+
+
+<h1>Posts</h1>
+
+
+<div class="row posts">
+  
+   <% @posts.each do |post| %>      
+     <div class="col-xs-12 col-md-6 post-panel">
+       <p><%= post.user.name %>のPicture</p>
+       <%= image_tag post.picture %>
+       <div>
+        <p>コメント: <%= post.text %></p>
+        
+        <%= link_to '詳細', post, class: 'btn btn-default' %>
+        <% if logged_in? %>
+          <% if post.user_id == current_user.id %>
+        <%= link_to '編集', edit_post_path(post), class: 'btn btn-info' %>
+        <%= link_to '削除', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <% end %>
+        <% end %>
+        </div>
+     </div>
+    <% end %>
+  
+</div>
+
+
+
+<br>
+
+<%= link_to '投稿する', new_post_path %>
