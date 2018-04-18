@@ -18,11 +18,15 @@
 
 footer{
   height: 50px;
-  background-color: #EFFBEF;
+  background-color: #A9F5A9;
   width: 100%;
   position: absolute;
   bottom:0;
 
+}
+
+footer p {
+  color: #837977;
 }
 html{
   font-size: 62.5%;
